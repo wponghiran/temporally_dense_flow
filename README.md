@@ -67,7 +67,10 @@ If you use this code in your work, please cite the following [paper](https://ope
 ```
 
 ## Visualization
-Video for demonstrating avaliable at this [link](https://youtube.com/shorts/nPwFKbhsCUI?feature=share). Generated GIF of the same visualization is included in [figure](./figures)
+We have compiled a video illustrating the temporally dense optical flow estimation with EfficientSpike-FlowNet (see bottom right) along with a video illustrating the flow estimation from the baseline EV-FlowNet model (see bottom left) for a qualitative evaluation purpose.
+
+Due to the way EV-FlowNet (and other existing models) was trained, it predicts optical flow at the same frequency as the original optical flow ground truth (10 Hz on the DSEC dataset) even if the event camera outputs events at a much faster rate. We use our proposed sequential training method to train EfficientSpike-FlowNet and achieve optical flow estimation at 100 Hz. The predictions from EfficientSpike-FlowNet are smoother than the predictions from EV-FlowNet as the predicted frame rate of the proposed method is 10x higher. EfficientSpike-FlowNet doesn't produce the same flow quality as EV-FlowNet (as discussed in the paper). However, it is expected to achieve a fast optical flow prediction with a fraction of energy than the baseline model due to its efficiency in processing events. This will be potentially useful for real-time application which requires a quick reaction time like a flying drone at a fast speed.
+Video for demonstrating avaliable at this [link](https://youtube.com/shorts/nPwFKbhsCUI?feature=share). Generated GIF of the same visualization is included in [`./figure`](./figures)
 
 ![](./figures/supplementary_video.gif)
 
